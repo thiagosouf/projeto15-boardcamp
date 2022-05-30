@@ -1,0 +1,38 @@
+CREATE DATABASE projeto15
+    WITH 
+    OWNER = postgres
+    ENCODING = 'UTF8'
+    CONNECTION LIMIT = -1;
+
+CREATE TABLE categories (
+    id serial PRIMARY KEY,
+    name varchar(255) NOT NULL
+);
+
+CREATE TABLE games (
+    id serial PRIMARY KEY,
+    name varchar(255) NOT NULL,
+    image varchar(255) NOT NULL,
+    stockTotal integer NOT NULL,
+    categoryId integer NOT NULL,
+    pricePerDay integer NOT NULL,
+);
+
+CREATE TABLE customers (
+    id serial PRIMARY KEY,
+    name varchar(255) NOT NULL,
+    phone varchar(255) NOT NULL,
+    cpf varchar(255) NOT NULL,
+    birthday date NOT NULL,
+);
+
+CREATE TABLE rentals (
+    id serial PRIMARY KEY,
+    customerId integer NOT NULL,
+    gameId integer NOT NULL,
+    rentDate date NOT NULL,
+    daysRented integer NOT NULL,
+    returnDate date,
+    originalPrice integer NOT NULL,
+    delayFee integer,
+)
