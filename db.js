@@ -15,12 +15,14 @@ if(process.env.NODE_ENV === "PROD") {
   }
 }
 
-const db = new Pool({
-  host: "localhost",
-  port: 5432,
-  user: "postgres",
-  password: "thiago",
-  database: "boardcamp"
-});
+const connection = new Pool(databaseConfig);
+
+// const db = new Pool({
+//   host: "localhost",
+//   port: 5432,
+//   user: "postgres",
+//   password: "thiago",
+//   database: "boardcamp"
+// });
 
 export default db;
