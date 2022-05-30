@@ -12,10 +12,9 @@ const databaseConfig = {
 if(process.env.NODE_ENV === "PROD") {
   databaseConfig.ssl = {
     rejectUnauthorized: false
-
   }}
 
-const connection = new Pool(databaseConfig);
+const db = new Pool(databaseConfig);
 
 // const db = new Pool({
 //   host: "localhost",
